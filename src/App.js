@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Reset } from "styled-reset";
+import MainLayout from "./components/MainLayout/MainLayout";
+import { Global } from "@emotion/react";
+import * as S from "./styles/common";
+import { Route, Routes } from "react-router-dom";
+import Today from "./pages/Today/Today";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Reset />
+      <Global styles={S.GSCommon} /> 
+      <MainLayout>
+        <Routes>
+          <Route path="/today" element={ <Today /> } />
+          <Route path="/upcoming" />
+          <Route path="/calendar" />
+          <Route path="/stickywall" />
+        </Routes>
+      </MainLayout>
+    </>
   );
 }
 
