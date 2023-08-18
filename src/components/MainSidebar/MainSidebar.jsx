@@ -4,13 +4,12 @@ import { css } from "@emotion/react";
 import * as S from "./style"
 import Header from './Header/Header';
 import List from './List/List';
+import { useRecoilState } from 'recoil';
+import { isSidebarShowState } from "../../store/sidebarStore";
 
 function MainSidebar(props) {
-    const [ isShow, setIsShow ] = useState(false);
-
-    const handleMenuToggleClick = () => {
-        setIsShow(!isShow);
-    }
+    const [ isSidebarShow, setIsSidebarShow ] = useRecoilState(isSidebarShowState);
+    // useState 말고 useRecoilState를 써서 전역으로 공유함
 
     const [ mainMenuListArray, setMainMenuListArray ] = useState ({
         tasks: [
@@ -72,9 +71,9 @@ function MainSidebar(props) {
 
     return (
         
-        <div css={S.SLayout(isShow)}>
-            <Header isShow={isShow} menuToggleOnClick={handleMenuToggleClick} />
-            {isShow && (
+        <div css={S.SLayout(isSidebarShow)}>
+            <Header />
+            {isSidebarShow && (
                 <>
                     <List title={"TASKS"} list={mainMenuListArray.tasks}/>
                     <List title={"LISTS"} list={mainMenuListArray.lists}/>
