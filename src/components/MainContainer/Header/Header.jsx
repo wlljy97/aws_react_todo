@@ -2,16 +2,14 @@ import React from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import * as S from "./Style";
-import MainSidebar from "../MainSidebar/MainSidebar";
 
-function MainLayout({ children }) {
+function Header({ title, count }) {
     return (
         <div css={S.SLayout}>
-            <MainSidebar />
-            {children}
-            
+            <h1 css={S.STitle}>{title}</h1>
+            <div css={S.SCountBox}>{count}</div>
         </div>
     );
 }
 
-export default MainLayout;
+export default Header;

@@ -5,6 +5,7 @@ import * as S from "./styles/common";
 import { Route, Routes } from "react-router-dom";
 import Today from "./pages/Today/Today";
 import { useState } from "react";
+import Calendar from "./pages/Calendar/Calendar";
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
           {/* 경로에는 대문자를 쓰면 안됨 */}
           <Route path="/today" element={ <Today /> } />
           <Route path="/upcoming" />
-          <Route path="/calendar" />
+          <Route path="/calendar" element={ <Calendar /> } />
           <Route path="/stickywall" />
         </Routes>
       </MainLayout>

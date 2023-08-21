@@ -5,3 +5,8 @@ export const isSidebarShowState = atom({
     key: "isSidebarShow",
     default: false // 실제로 데이터가 저장
 });
+
+export const isRightSubSidebarState = atom({
+    key: "isRightSubSidebar",
+    default: false
+});
